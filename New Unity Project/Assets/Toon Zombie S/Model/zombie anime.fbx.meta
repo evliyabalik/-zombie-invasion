@@ -2,373 +2,52 @@ fileFormatVersion: 2
 guid: cdd9a8a49378b5d43b3ad16db56e8998
 ModelImporter:
   serializedVersion: 20200
-  InternalIDToNameTable:
+  internalIDToNameTable:
   - first:
-      1: 100000
-    second: arm2_L
-  - first:
-      1: 100002
-    second: arm2_R
-  - first:
-      1: 100004
-    second: arm_L
-  - first:
-      1: 100006
-    second: arm_R
-  - first:
-      1: 100008
-    second: Armature
-  - first:
-      1: 100010
-    second: body
-  - first:
-      1: 100012
-    second: body1
-  - first:
-      1: 100014
-    second: body2
-  - first:
-      1: 100016
-    second: Bone
-  - first:
-      1: 100018
-    second: Bone_001_L_004
-  - first:
-      1: 100020
-    second: Bone_001_L_005
-  - first:
-      1: 100022
-    second: Bone_001_L_006
-  - first:
-      1: 100024
-    second: Bone_001_L_007
-  - first:
-      1: 100026
-    second: Bone_001_L_008
-  - first:
-      1: 100028
-    second: Bone_001_L_009
-  - first:
-      1: 100030
-    second: Bone_001_L_010
-  - first:
-      1: 100032
-    second: Bone_001_L_011
-  - first:
-      1: 100034
-    second: Bone_001_R_004
-  - first:
-      1: 100036
-    second: Bone_001_R_005
-  - first:
-      1: 100038
-    second: Bone_001_R_006
-  - first:
-      1: 100040
-    second: Bone_001_R_007
-  - first:
-      1: 100042
-    second: Bone_001_R_008
-  - first:
-      1: 100044
-    second: Bone_001_R_009
-  - first:
-      1: 100046
-    second: Bone_001_R_010
-  - first:
-      1: 100048
-    second: Bone_001_R_011
-  - first:
-      1: 100050
-    second: Bone_002_L_003
-  - first:
-      1: 100052
-    second: Bone_002_L_004
-  - first:
-      1: 100054
-    second: Bone_002_R_003
-  - first:
-      1: 100056
-    second: Bone_002_R_004
-  - first:
-      1: 100058
-    second: Bone_010
-  - first:
-      1: 100060
-    second: Bone_011
-  - first:
-      1: 100062
-    second: chin
-  - first:
-      1: 100064
-    second: eye
-  - first:
-      1: 100066
-    second: fin2_L
-  - first:
-      1: 100068
-    second: fin2_R
-  - first:
-      1: 100070
-    second: fin_L
-  - first:
-      1: 100072
-    second: fin_R
-  - first:
-      1: 100074
-    second: hand_L
-  - first:
-      1: 100076
-    second: hand_R
-  - first:
-      1: 100078
-    second: head
-  - first:
-      1: 100080
-    second: leg1_L
-  - first:
-      1: 100082
-    second: leg1_R
-  - first:
-      1: 100084
-    second: leg2_L
-  - first:
-      1: 100086
-    second: leg2_R
-  - first:
-      1: 100088
-    second: leg3_L
-  - first:
-      1: 100090
-    second: leg3_R
-  - first:
-      1: 100092
-    second: master
-  - first:
-      1: 100094
-    second: neck
-  - first:
-      1: 100096
-    second: shoulder_L
-  - first:
-      1: 100098
-    second: shoulder_R
-  - first:
-      1: 100100
-    second: //RootNode
-  - first:
-      4: 400000
-    second: arm2_L
-  - first:
-      4: 400002
-    second: arm2_R
-  - first:
-      4: 400004
-    second: arm_L
-  - first:
-      4: 400006
-    second: arm_R
-  - first:
-      4: 400008
-    second: Armature
-  - first:
-      4: 400010
-    second: body
-  - first:
-      4: 400012
-    second: body1
-  - first:
-      4: 400014
-    second: body2
-  - first:
-      4: 400016
-    second: Bone
-  - first:
-      4: 400018
-    second: Bone_001_L_004
-  - first:
-      4: 400020
-    second: Bone_001_L_005
-  - first:
-      4: 400022
-    second: Bone_001_L_006
-  - first:
-      4: 400024
-    second: Bone_001_L_007
-  - first:
-      4: 400026
-    second: Bone_001_L_008
-  - first:
-      4: 400028
-    second: Bone_001_L_009
-  - first:
-      4: 400030
-    second: Bone_001_L_010
-  - first:
-      4: 400032
-    second: Bone_001_L_011
-  - first:
-      4: 400034
-    second: Bone_001_R_004
-  - first:
-      4: 400036
-    second: Bone_001_R_005
-  - first:
-      4: 400038
-    second: Bone_001_R_006
-  - first:
-      4: 400040
-    second: Bone_001_R_007
-  - first:
-      4: 400042
-    second: Bone_001_R_008
-  - first:
-      4: 400044
-    second: Bone_001_R_009
-  - first:
-      4: 400046
-    second: Bone_001_R_010
-  - first:
-      4: 400048
-    second: Bone_001_R_011
-  - first:
-      4: 400050
-    second: Bone_002_L_003
-  - first:
-      4: 400052
-    second: Bone_002_L_004
-  - first:
-      4: 400054
-    second: Bone_002_R_003
-  - first:
-      4: 400056
-    second: Bone_002_R_004
-  - first:
-      4: 400058
-    second: Bone_010
-  - first:
-      4: 400060
-    second: Bone_011
-  - first:
-      4: 400062
-    second: chin
-  - first:
-      4: 400064
-    second: eye
-  - first:
-      4: 400066
-    second: fin2_L
-  - first:
-      4: 400068
-    second: fin2_R
-  - first:
-      4: 400070
-    second: fin_L
-  - first:
-      4: 400072
-    second: fin_R
-  - first:
-      4: 400074
-    second: hand_L
-  - first:
-      4: 400076
-    second: hand_R
-  - first:
-      4: 400078
-    second: head
-  - first:
-      4: 400080
-    second: leg1_L
-  - first:
-      4: 400082
-    second: leg1_R
-  - first:
-      4: 400084
-    second: leg2_L
-  - first:
-      4: 400086
-    second: leg2_R
-  - first:
-      4: 400088
-    second: leg3_L
-  - first:
-      4: 400090
-    second: leg3_R
-  - first:
-      4: 400092
-    second: master
-  - first:
-      4: 400094
-    second: neck
-  - first:
-      4: 400096
-    second: shoulder_L
-  - first:
-      4: 400098
-    second: shoulder_R
-  - first:
-      4: 400100
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: body
-  - first:
-      43: 4300002
-    second: eye
-  - first:
-      74: 7400000
+      74: 8606258397752818781
     second: run01
   - first:
-      74: 7400002
+      74: 6624316191983093321
     second: run02
   - first:
-      74: 7400004
+      74: -347546121127418605
     second: walk01
   - first:
-      74: 7400006
+      74: -8739990977218056928
     second: walk02
   - first:
-      74: 7400008
+      74: -8271093968583540842
     second: walk03
   - first:
-      74: 7400010
+      74: -338917167715121811
     second: walk04
   - first:
-      74: 7400012
+      74: 170362243895526971
     second: idle01
   - first:
-      74: 7400014
+      74: 1667369116567311112
     second: idle02
   - first:
-      74: 7400016
+      74: -7102079504629967285
     second: atack01
   - first:
-      74: 7400018
+      74: -8106719477835108067
     second: atack02
   - first:
-      74: 7400020
+      74: -5513763276173637187
     second: death01
   - first:
-      74: 7400022
+      74: 797727506977924371
     second: death02
   - first:
-      74: 7400024
+      74: 3242063786132913329
     second: death03
   - first:
-      74: 7400026
+      74: 790961572245938789
     second: creep up
   - first:
-      74: 7400028
+      74: 2412683242499396655
     second: damege
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: body
-  - first:
-      137: 13700002
-    second: eye
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -384,11 +63,21 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Default Take' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'chin' has translation animation that will
+      be discarded.\n\t'body2' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'leg1_R' has translation animation that
+      will be discarded.\n\nClip 'ArmatureAction' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'chin' has translation animation that will
+      be discarded.\n\t'body2' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'leg1_R' has translation animation that
+      will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    ImportAnimatedCustomProperties: 0
-    ImportConstraints: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -832,7 +521,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-    IsReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 0.1
@@ -840,10 +529,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    ImportVisibility: 0
-    ImportBlendShapes: 1
-    ImportCameras: 0
-    ImportLights: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -874,7 +563,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  ImportAnimation: 1
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human:
