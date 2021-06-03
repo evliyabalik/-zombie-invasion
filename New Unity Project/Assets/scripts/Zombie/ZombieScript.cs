@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class ZombieScript : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class ZombieScript : MonoBehaviour
 
     //SerializeField
     [SerializeField]Transform house;//ev objesi
+
+    [Header("Image")]
+    [SerializeField] Image zombiBar;
 
 
     // Start is called before the first frame update
@@ -63,6 +67,7 @@ public class ZombieScript : MonoBehaviour
 
     void Death(){ // Ölüm kodları
         if(health<=0){
+            nav.speed = 0;
             anim.SetTrigger("Dead");
             this.gameObject.tag="Untagged";
             Destroy(this.gameObject, 3);
@@ -82,11 +87,24 @@ public class ZombieScript : MonoBehaviour
 
     }
 
-    void FaceTarget(){
+    void FaceTarget(){ //Zombi eve yaklaştığında eve doğru bakar
         Vector3 direction=(home.position-transform.position).normalized;
         Quaternion lookRotation=Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
         transform.rotation=Quaternion.Slerp(transform.rotation,lookRotation,Time.deltaTime*5f);
     }
+
+    void HealthBar()
+    {
+        zombiBar.fillAmount = health / 100;
+    }
+
+    //public
+    public void AttackonHome()
+    {
+        HomeHealth.homeHealth -= Random.Range(0.01f, 0.1f);
+    }
+
+
 
 
 
@@ -94,6 +112,7 @@ public class ZombieScript : MonoBehaviour
 
     IEnumerator isDeath(){ // karakterin ölümü gerçekleştiriliyor
         yield return new WaitForEndOfFrame();
+        HealthBar();
         Death();
         yield return isDeath();
     }
@@ -132,12 +151,7 @@ public class ZombieScript : MonoBehaviour
     }
 
 
-    void OnTriggerEnter(Collider col) {
-        if(col.gameObject.tag=="home"){
-            HomeHealth.homeHealth-=Random.Range(0.1f,0.5f);
-            print(HomeHealth.homeHealth);
-        }
-    }
+   
 
 
 

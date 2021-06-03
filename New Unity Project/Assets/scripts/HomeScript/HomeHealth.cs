@@ -1,17 +1,33 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HomeHealth : MonoBehaviour
 {
     public static float homeHealth=100;
+
+    [Header("Sprite")]
+    [SerializeField] Image houseBar;
+
+    [Header("Text")]
+    [SerializeField] Text LifeText;
+
     // Start is called before the first frame update
 
-
-    void OnTriggerEnter(Collider col) {
-        if(col.gameObject.tag=="zombie"){
-            homeHealth-=Random.Range(0.1f,0.5f);
-
-        }
+    void Update()
+    {
+        HouseBar();
     }
+
+    void HouseBar()
+    {
+        houseBar.fillAmount = homeHealth / 100;
+
+        if(homeHealth==100f)
+            LifeText.text = "%" + homeHealth.ToString("f0");
+        else
+            LifeText.text = "%" + homeHealth.ToString("f2");
+    }
+
 
 
 
