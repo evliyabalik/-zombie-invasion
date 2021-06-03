@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class PlayerScript : MonoBehaviour
@@ -74,32 +75,38 @@ public class PlayerScript : MonoBehaviour
         Debug.DrawRay(transform.position-offsetStart,transform.forward-offsetFin,Color.green);
         
         if(Physics.Raycast(transform.position-offsetStart,transform.forward-offsetFin, out hit,1000,1<<LayerMask.NameToLayer("Target"))){
-            print(hit.collider.tag);
             if(hit.collider.tag=="zombie"){
                 GetComponent<Renderer>().material.SetColor("_BaseColor",Color.green); // hedef zombiye geldiğinde yeşil olsun
                 Enemy = hit.collider.transform.gameObject;
-                fire=FireisStart();
+               // fire=FireisStart();
                 if (hit.collider.transform.gameObject.GetComponent<ZombieScript>().health > 0)
                 { // zombi canı eğer 0'ın üstündeyse
                     hit.collider.transform.gameObject.GetComponent<ZombieScript>().isDead = true;// ölümü true olarak gönder
-                    StartCoroutine(fire);
+                    StartCoroutine("FireisStart");
                 }
 
                 else
                 {
-                    hit.collider.transform.gameObject.GetComponent<ZombieScript>().isDead = false; // aksi halde ölümü false yap
-                    
+                    hit.collider.transform.gameObject.GetComponent<ZombieScript>().isDead = false;// aksi halde ölümü false yap                    
                 }
 
 
 
             }
             else{
+                
                 GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white); // zombiden ayrıldığında beyaz olsun
-                StopCoroutine(fire);
                 Enemy = null;
+                hit.collider.transform.gameObject.GetComponent<ZombieScript>().isDead = false;
+                StopCoroutine("FireisStart");
             }
 
+        }
+        else
+        {
+            GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white); // zombiden ayrıldığında beyaz olsun
+            Enemy = null;
+            StopCoroutine("FireisStart");
         }
     }
 
@@ -107,15 +114,19 @@ public class PlayerScript : MonoBehaviour
 
 
     IEnumerator FireisStart(){
-        yield return new WaitForSeconds(0.5f);
-        if(Enemy.GetComponent<ZombieScript>().isDead && Enemy!=null){
-            Enemy.GetComponent<ZombieScript>().health= -100f;
+        yield return new WaitForSeconds(2f);
+        if(Enemy.GetComponent<ZombieScript>().isDead){
+            if (Enemy != null)
+            {
+                Enemy.GetComponent<ZombieScript>().health = -100f;
+            }
         }
-        
-
-        yield return FireisStart();
     }
 
+
+
+    //zombie animation method
+    
 
 
 }
