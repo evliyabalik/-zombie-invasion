@@ -70,8 +70,8 @@ public class ZombieScript : MonoBehaviour
             nav.speed = 0;
             anim.SetTrigger("Dead");
             this.gameObject.tag="Untagged";
+            transform.GetChild(3).gameObject.SetActive(true);
             Destroy(this.gameObject, 3);
-
         }
     }
 
@@ -104,12 +104,17 @@ public class ZombieScript : MonoBehaviour
         HomeHealth.homeHealth -= Random.Range(0.01f, 0.1f);
     }
 
+    public void Score()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            GameControllerScript.score += Random.Range(3, 10);
+        }
+    }
 
 
 
-
-
-
+    //IEnumerator
     IEnumerator isDeath(){ // karakterin ölümü gerçekleştiriliyor
         yield return new WaitForEndOfFrame();
         HealthBar();
@@ -149,10 +154,9 @@ public class ZombieScript : MonoBehaviour
 
 
     }
+  
 
 
    
-
-
 
 }

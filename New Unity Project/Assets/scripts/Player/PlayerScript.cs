@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     // parmak yönüne doğru hareket
     // parmak algılaması
     // ekran sınırları
+    // Ateş etme komutu
     */
 
     [SerializeField]float speed; // hedef göstergersinin parmağı takip edeceği hız
@@ -19,12 +20,14 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] GameObject Enemy; // zaten bu düşman
 
     float fireTime=2f; // ateş süresi (bunu eklememin sebebi silahı güçlendirdikçe ateş hızını değiştirecem)
-    IEnumerator fire;
+
+    //public 
+    public static Vector3[] deadEnemyPos;
 
     // Start is called before the first frame update
     void Start()
     {
-         // ateşi başlatma komutu
+       
     }
 
     // Update is called once per frame
@@ -44,6 +47,8 @@ public class PlayerScript : MonoBehaviour
                 RaycastFunc(); // raycast oluştur
             }
         }
+
+
 
 
 
@@ -70,6 +75,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+
     void RaycastFunc(){
         RaycastHit hit;
         Debug.DrawRay(transform.position-offsetStart,transform.forward-offsetFin,Color.green);
@@ -87,7 +93,8 @@ public class PlayerScript : MonoBehaviour
 
                 else
                 {
-                    hit.collider.transform.gameObject.GetComponent<ZombieScript>().isDead = false;// aksi halde ölümü false yap                    
+                    hit.collider.transform.gameObject.GetComponent<ZombieScript>().isDead = false;// aksi halde ölümü false yap
+                    
                 }
 
 
@@ -125,7 +132,7 @@ public class PlayerScript : MonoBehaviour
 
 
 
-    //zombie animation method
+    
     
 
 
