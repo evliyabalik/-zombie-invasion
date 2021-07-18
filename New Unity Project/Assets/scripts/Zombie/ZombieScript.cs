@@ -13,7 +13,7 @@ public class ZombieScript : MonoBehaviour
     2- zombi canı ve diğer şeyler
     */
 
-    public float health=100f; // zombi canı
+    public float health; // zombi canı
     public float speed;// zombi animasyon hızı
     public bool isDead=false; //ölüp ölmediği ile ilgili değişken
     public bool isStopped=false; //zombinin durup durmadığını kontrol eder
@@ -31,6 +31,8 @@ public class ZombieScript : MonoBehaviour
 
     [Header("Image")]
     [SerializeField] Image zombiBar;
+
+    [SerializeField] int zombieLvl;
 
 
     // Start is called before the first frame update
@@ -51,8 +53,9 @@ public class ZombieScript : MonoBehaviour
     void Update()
     {
         SpeedWalk(); // yürüme hızı
+        HealthBar(zombieLvl);
 
-        if(Vector3.Distance(transform.position,house.position)< 0.47f){ //karakterin hedefe olan mesafesi ölçüülüyor
+        if (Vector3.Distance(transform.position,house.position)< 0.47f){ //karakterin hedefe olan mesafesi ölçüülüyor
             speed=0f;
             FaceTarget();
             isStopped=true;
@@ -61,6 +64,8 @@ public class ZombieScript : MonoBehaviour
             speed=1f;
             isStopped=false;
         }
+
+       
 
 
     }
@@ -93,15 +98,38 @@ public class ZombieScript : MonoBehaviour
         transform.rotation=Quaternion.Slerp(transform.rotation,lookRotation,Time.deltaTime*5f);
     }
 
-    void HealthBar()
+    void HealthBar(int lvl=0)
     {
-        zombiBar.fillAmount = health / 100;
+        switch (lvl)
+        {
+            case 1:
+                zombiBar.fillAmount = health / 100;
+                break;
+            case 2:
+                zombiBar.fillAmount = health / 200;
+                break;
+            case 3:
+                zombiBar.fillAmount = health / 300;
+                break;
+            default:
+                break;
+        }
     }
 
     //public
     public void AttackonHome()
     {
         HomeHealth.homeHealth -= Random.Range(0.01f, 0.1f);
+    }
+
+    public void AttackonHomeLvl2()
+    {
+        HomeHealth.homeHealth -= Random.Range(0.05f, 0.15f);
+    }
+
+    public void AttackonHomeLvl3()
+    {
+        HomeHealth.homeHealth -= Random.Range(0.07f, 0.2f);
     }
 
     public void Score()
@@ -146,9 +174,7 @@ public class ZombieScript : MonoBehaviour
 
             anim.SetTrigger("Attack"); // ve saldır
         }
-        else{
-
-        }
+      
 
         yield return SpeedOff(); // kodu tekrarla
 

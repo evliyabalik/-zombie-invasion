@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using WeaponState;
 
 public class GameControllerScript : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class GameControllerScript : MonoBehaviour
     //Public
     public static List<Transform> targetTransform;
     public static int score;
-    
+
+
 
 
  
@@ -41,6 +43,20 @@ public class GameControllerScript : MonoBehaviour
         }
     }
 
+
+    //Plublic Method UI
+
+
+    public void Bomb()
+    {
+        PlayerScript.state = State.Bomb;
+        
+    }
+
+    public void Weapon()
+    {
+        PlayerScript.state = State.Weapon;
+    }
 
   
   
