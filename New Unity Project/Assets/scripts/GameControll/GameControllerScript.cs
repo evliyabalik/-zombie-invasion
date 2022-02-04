@@ -12,26 +12,53 @@ public class GameControllerScript : MonoBehaviour
     */
 
     //SerializeField
+    [SerializeField] GameObject weapon, bomb;
 
+    [SerializeField] Button bombButton;
 
     //Public
     public static List<Transform> targetTransform;
     public static int score;
 
+    public static int isBombLeft =5;
+
+
+    public static State state;
 
 
 
- 
+
+
     void Start()
     {
         SelectTarget();
-       // CoinSpawner();
+        bomb.SetActive(false);
+        StartCoroutine(isBombActive());
+
+
+        // CoinSpawner();
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(score);
+
+
+        if (state == State.Weapon)
+        {
+            bomb.SetActive(false);
+            weapon.SetActive(true);
+        }
+
+
+        if (state == State.Bomb)
+        {
+            bomb.SetActive(true);
+            weapon.SetActive(false);
+        }
+
+
+
     }
 
     void SelectTarget()
@@ -49,18 +76,58 @@ public class GameControllerScript : MonoBehaviour
 
     public void Bomb()
     {
-        PlayerScript.state = State.Bomb;
-        
+
+        StartCoroutine(BombActive());
     }
 
     public void Weapon()
     {
-        PlayerScript.state = State.Weapon;
+        StartCoroutine(TurnOffBomb());
     }
 
-  
-  
 
-    
-   
+    IEnumerator BombActive()
+    {
+        yield return new WaitForEndOfFrame();
+        state = State.Bomb;
+    }
+
+    IEnumerator TurnOffBomb()
+    {
+        yield return new WaitForEndOfFrame();
+        state = State.Weapon;
+        BombScripts.mousePos = Vector3.zero;
+    }
+
+    IEnumerator isBombActive()
+    {
+       
+        yield return new WaitForSeconds(1.0f);
+
+        if (!BombScripts.isPlayingBomb)
+        {
+            BombScripts.isPlayingBomb = true;
+            bombButton.interactable = false;
+
+            if (isBombLeft > 0)
+            {
+                isBombLeft--;
+            }
+            else
+            {
+                isBombLeft = 0;
+            }
+        }
+        else
+        {
+            bombButton.interactable = true;
+        }
+
+        yield return isBombActive();
+    }
+
+
+
+
+
 }

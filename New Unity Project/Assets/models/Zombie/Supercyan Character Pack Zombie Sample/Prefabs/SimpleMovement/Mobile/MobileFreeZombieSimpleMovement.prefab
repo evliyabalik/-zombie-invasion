@@ -838,7 +838,8 @@ MonoBehaviour:
   isStopped: 0
   home: {fileID: 0}
   house: {fileID: 0}
-  zombiBar: {fileID: 0}
+  zombiBar: {fileID: 4191487130819778724}
+  zombieLvl: 1
 --- !u!195 &1910650665
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1130,11 +1131,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124555376703247134, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200.00002
+      value: 232.2
       objectReference: {fileID: 0}
     - target: {fileID: 7124555376703247134, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 356
+      value: 124.49
       objectReference: {fileID: 0}
     - target: {fileID: 7124555376703247134, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1146,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124555376703247134, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.86099994
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: 7124555376703247134, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1192,6 +1193,22 @@ PrefabInstance:
       propertyPath: m_Text
       value: lvl 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7189377158358826970, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189377158358826970, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189377158358826970, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189377158358826970, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
 --- !u!224 &4191487131118069263 stripped
@@ -1199,6 +1216,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7124555376703247134, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
   m_PrefabInstance: {fileID: 6409930725093995793}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4191487130819778724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7124555376404770229, guid: 6cae46a0400eab1449ffcf8e4f15323f, type: 3}
+  m_PrefabInstance: {fileID: 6409930725093995793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9185911804486054962
 PrefabInstance:
   m_ObjectHideFlags: 0
