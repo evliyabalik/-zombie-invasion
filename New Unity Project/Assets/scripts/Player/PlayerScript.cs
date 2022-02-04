@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] GameObject Enemy; // zaten bu düşman
 
     float fireTime=2f; // ateş süresi (bunu eklememin sebebi silahı güçlendirdikçe ateş hızını değiştirecem)
-    public static State state;
+   float timeZone;
 
     //public 
     public static Vector3[] deadEnemyPos;
@@ -32,48 +32,45 @@ public class PlayerScript : MonoBehaviour
   
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        StartCoroutine("FireisStart");
+        //StartCoroutine(FireisStart());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount>0){ // parmak sayısı 0'ın üstündeyse
-            Touch parmak=Input.GetTouch(0); // 1. parmağı algıla
-            if (state == State.Weapon)
-            {
-                this.gameObject.GetComponent<MeshRenderer>().enabled = true;
-                if (parmak.phase == TouchPhase.Moved)
-                { // parmak hareket ediyorsa
-                    Vector2 vec = Camera.main.ScreenToViewportPoint(parmak.deltaPosition); // kamera görüş alanı içersinden sürükleme payını hesapla
+        if (Input.touchCount > 0)
+        { // parmak sayısı 0'ın üstündeyse
+            Touch parmak = Input.GetTouch(0); // 1. parmağı algıla
 
-                    transform.Translate(vec * Time.deltaTime * speed); // hedef göstergesini hareket ettir
-                                                                       //print(transform.position);
+            this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            if (parmak.phase == TouchPhase.Moved)
+            { // parmak hareket ediyorsa
+                Vector2 vec = Camera.main.ScreenToViewportPoint(parmak.deltaPosition); // kamera görüş alanı içersinden sürükleme payını hesapla
 
-                    Boundary(); // ekran sınırlar / hareket edebileceği alan sınırı
+                transform.Translate(vec * Time.deltaTime * speed); // hedef göstergesini hareket ettir
+                                                                   //print(transform.position);
 
-                    RaycastFunc(); // raycast oluştur
-                }
+                Boundary(); // ekran sınırlar / hareket edebileceği alan sınırı
 
-                print("Silah Aktif");
             }
 
-            if (state == State.Bomb)
-            {
-                this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+             RaycastFunc(); // raycast oluştur
+             Fire();
 
-                print("Bomba Aktif");
-            }
-           
+            print("Silah Aktif");
         }
-
-
-
-        print(state);
-
-
+        else{
+             
+            if (Enemy!=null)
+            {
+                Enemy.GetComponent<ZombieScript>().isDead = false;
+            }
+            GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white); // zombiden ayrıldığında beyaz olsun
+            Enemy = null;
+            timeZone=0;
+        }
     }
 
 
@@ -146,6 +143,22 @@ public class PlayerScript : MonoBehaviour
 
 
 
+
+    void Fire(){
+        timeZone+=Time.deltaTime;
+
+        if(timeZone>fireTime){
+            if (Enemy != null)
+            {
+                if (Enemy.GetComponent<ZombieScript>().isDead)
+                {
+                    Enemy.GetComponent<ZombieScript>().health -= 100;
+                }
+            }
+
+            timeZone=0;
+        }
+    }
 
     IEnumerator FireisStart(){
         
